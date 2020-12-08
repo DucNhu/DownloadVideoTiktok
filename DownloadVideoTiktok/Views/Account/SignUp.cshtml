@@ -1,0 +1,42 @@
+﻿@inject Microsoft.Extensions.Options.IOptions<DownloadVideoTiktok.Infrastructure.WebConfig> webConfig
+
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+@section Styles
+{
+    <environment include="Development">
+        <link href="~/css/sign-in.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/sign-in.min.css" asp-append-version="true" />
+    </environment>    
+}
+
+<form class="form-signin" id="form-register" novalidate>
+    <div class="text-center mb-4">
+        <img class="mb-4" src="~/imgs/favicon.png" alt="" width="72" height="72" />
+        <h1 class="h3 mb-3 font-weight-normal">Welcome</h1>
+        <p>Enter information to Sign up</p>
+    </div>
+    <div class="alert alert-warning d-none alert-register" role="alert">
+        <strong>Alert!</strong> <span></span>
+    </div>
+    <div class="form-label-group">
+        <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+        <label class="lbl-float" for="inputEmail">Email address</label>
+    </div>
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <label class="lbl-float" for="inputPassword">Password</label>
+    </div>
+    <div class="form-label-group">
+        <input type="password" id="inputRePassword" name="repassword" class="form-control" placeholder="Re-enter password" required>
+        <label class="lbl-float" for="inputRePassword">Re-enter password</label>
+    </div>
+    <div class="form-group">
+        <div id="rcRegister"></div>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+</form>

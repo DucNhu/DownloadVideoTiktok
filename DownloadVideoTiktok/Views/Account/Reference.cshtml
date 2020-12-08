@@ -1,0 +1,64 @@
+﻿@model DownloadVideoTiktok.Models.PageListModel<DownloadVideoTiktok.Models.UserReference>
+
+@{
+    ViewData["Title"] = "Reference";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <partial name="_AccountMenuPartial" />
+    </div>
+    <div class="col-md-9">
+        <section>
+            <h4>Reference.</h4>
+            <hr />
+            <div class="alert alert-warning" role="alert">
+                Your link: @Context.Request.Scheme://@Context.Request.Host/?ref=@User.Identity.Name
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            No.
+                        </th>
+                        <th>
+                            Account
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Earn
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.List.Select((v, i) => new { Index = i, Value = v }))
+                    {
+                        <tr>
+                            <td>
+                                @(item.Index + 1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.DateCreated)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.Earn)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/_PagingPartial.cshtml", Model.Paging)
+
+@section Scripts
+{
+
+}

@@ -1,0 +1,37 @@
+﻿<ul class="navbar-nav">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome! @User.Identity.Name
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    @if (User.IsInRole("ADMIN"))
+                    {
+                        <a class="dropdown-item" href="/admin">Admin</a>
+                        <div class="dropdown-divider"></div>
+                    }
+                    <a class="dropdown-item" href="/change-password">Change password</a>
+                    <a class="dropdown-item" href="/transactions">Transactions</a>
+                    <a class="dropdown-item" href="/history-download">History download</a>
+                    <a class="dropdown-item" href="/reference">Reference</a>
+                    <a class="dropdown-item" href="/upgrade">Upgrade</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </div>
+            @*<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"
+               title="Manage">Hello @User.Identity.Name!</a>*@
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="/signup">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="/signin">Login</a>
+        </li>
+    }
+</ul>

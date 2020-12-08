@@ -1,0 +1,63 @@
+﻿@model DownloadVideoTiktok.Models.PageListModel<DownloadVideoTiktok.Models.UserTransaction>
+
+@{
+    ViewData["Title"] = "Transaction";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <partial name="_AccountMenuPartial" />
+    </div>
+    <div class="col-md-9">
+        <section>
+            <h4>History transactions.</h4>
+            <hr />
+            <div class="alert alert-warning" role="alert">
+                Balance: @ViewBag.Balance
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            No.
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Cost
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.List.Select((v, i) => new { Index = i, Value = v }))
+                    {
+                        <tr>
+                            <td>
+                                @(item.Index + 1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.Cost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.DateCreated)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @await Html.PartialAsync("~/Views/Shared/_PagingPartial.cshtml", Model.Paging)
+        </section>
+    </div>
+</div>
+
+@section Scripts
+{
+
+}

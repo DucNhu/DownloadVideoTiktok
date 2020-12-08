@@ -1,0 +1,36 @@
+﻿@model DownloadVideoTiktok.Models.Article
+
+@{
+    ViewData["Title"] = Model.Name;
+    ViewData["MetaTitle"] = Model.SEOTitle;
+    ViewData["MetaDes"] = Model.SEODescrition;
+    ViewData["MetaKeyword"] = Model.SEOKeywords;
+}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", Model)
+                    <h1>@Model.Name</h1>
+                    <h2 class="subheading">@Model.Summary</h2>
+                    <span class="meta">
+                        Posted by
+                        <a href="/">videodownhd.com</a>
+                        on @Model.DateCreated.Value.ToLongDateString()
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @Html.Raw(Model.Detail)
+        </div>
+    </div>
+</div>

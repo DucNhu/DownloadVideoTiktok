@@ -1,0 +1,44 @@
+﻿@model DownloadVideoTiktok.Models.Article
+
+@{
+    ViewData["Title"] = Model.SEOTitle;
+    ViewData["MetaTitle"] = Model.SEOTitle;
+    ViewData["MetaDes"] = Model.SEODescrition;
+    ViewData["MetaKeyword"] = Model.SEOKeywords;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-9 mx-auto text-center">
+            @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", Model)
+            @Html.Raw(Model.Summary)
+        </div>
+        <div class="col-md-12 col-lg-12 col-xl-12 mx-auto">
+            <form action="/@Context.Request.RouteValues["type"]">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" name="url" placeholder="Url video" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-block btn-lg btn-primary">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 box-result"></div>
+    </div>
+</div>
+<hr class="featurette-divider">
+<div class="my-3 p-3 bg-white rounded">
+    @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", ViewBag.GuideContent as Article)
+    @Html.Raw(ViewBag.GuideContent.Detail)
+</div>
+<hr class="featurette-divider">
+<div class="my-3 p-3 bg-white rounded">
+    @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", Model)
+    @Html.Raw(Model.Detail)
+</div>

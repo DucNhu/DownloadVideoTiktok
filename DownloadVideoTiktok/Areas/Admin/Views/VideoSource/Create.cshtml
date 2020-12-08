@@ -1,0 +1,116 @@
+﻿@model DownloadVideoTiktok.Models.VideoSource
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+
+@section Styles {
+}
+
+<div class="container-fluid">
+    <form id="submitForm" method="post" asp-action="Create" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Create article</h6>
+                <div>
+                    <a href="/admin/videosource" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-arrow-left fa-sm text-white-50"></i> Back</a>
+                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fa fa-check fa-sm text-white-50"></i> Submit</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Name</label>
+                            <input asp-for="Name" name="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="IsActive" class="control-label">Active</label>
+                            <select class="form-control" asp-for="IsActive" name="IsActive">
+                                <option value="true">Active</option>
+                                <option value="false">Unactive</option>
+                            </select>
+                            <span asp-validation-for="IsActive" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HasLink" class="control-label">HasLink</label>
+                            <select class="form-control" asp-for="HasLink" name="HasLink">
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.NO_SUPPORT)">No support</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.RUNNING)">Running</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.ERROR)">Error</option>
+                            </select>
+                            <span asp-validation-for="HasLink" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="UrlCheckLink" name="UrlCheckLink" placeholder="UrlCheckLink" class="form-control" />
+                            <span asp-validation-for="UrlCheckLink" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HasUser" class="control-label">HasUser</label>
+                            <select class="form-control" asp-for="HasUser" name="HasUser">
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.NO_SUPPORT)">No support</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.RUNNING)">Running</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.ERROR)">Error</option>
+                            </select>
+                            <span asp-validation-for="HasUser" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="UrlCheckUser" name="UrlCheckUser" placeholder="UrlCheckUser" class="form-control" />
+                            <span asp-validation-for="UrlCheckUser" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HasChanel" class="control-label">HasChanel</label>
+                            <select class="form-control" asp-for="HasChanel" name="HasChanel">
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.NO_SUPPORT)">No support</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.RUNNING)">Running</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.ERROR)">Error</option>
+                            </select>
+                            <span asp-validation-for="HasChanel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="UrlCheckChanel" name="UrlCheckChanel" placeholder="UrlCheckChanel" class="form-control" />
+                            <span asp-validation-for="UrlCheckChanel" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HasPlaylist" class="control-label">HasPlaylist</label>
+                            <select class="form-control" asp-for="HasPlaylist" name="HasPlaylist">
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.NO_SUPPORT)">No support</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.RUNNING)">Running</option>
+                                <option value="@((int)DownloadVideoTiktok.Infrastructure.WebEnums.StatusVideoSource.ERROR)">Error</option>
+                            </select>
+                            <span asp-validation-for="HasPlaylist" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="UrlCheckPlaylist" name="UrlCheckPlaylist" placeholder="UrlCheckPlaylist" class="form-control" />
+                            <span asp-validation-for="UrlCheckPlaylist" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+}

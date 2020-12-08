@@ -1,0 +1,76 @@
+﻿@model DownloadVideoTiktok.Models.Article
+
+@{
+    ViewData["Title"] = Model.SEOTitle;
+    ViewData["MetaTitle"] = Model.SEOTitle;
+    ViewData["MetaDes"] = Model.SEODescrition;
+    ViewData["MetaKeyword"] = Model.SEOKeywords;
+}
+
+<div id="homePage" class="container">
+    <div class="row">
+        <div class="col-xl-9 mx-auto text-center">
+            @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", Model)
+            <h1 class="mb-5">@Html.Raw(Model.Detail)</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form id="form-video" novalidate>
+                <div class="form-group">
+                    <textarea id="txtUrl" class="form-control form-control-lg" name="url" rows="3" placeholder="Enter link or chanel, playlist, user...(support multiple)">@Context.Request.Query["url"]</textarea>
+                </div>
+                @*<div class="form-group">
+                        <div id="rcGetVideo"></div>
+                    </div>*@
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-lg btn-primary">Get link</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 box-result"></div>
+    </div>
+</div>
+<hr class="featurette-divider">
+<div class="my-3 p-3 bg-white rounded">
+    <h6 class="border-bottom border-gray pb-2 mb-0">@ViewBag.SourceContent.Summary</h6>
+    <div class="mt-5 list-supported">
+        @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", ViewBag.SourceContent as Article)
+        @Html.Raw(ViewBag.SourceContent.Detail)
+    </div>
+</div>
+<hr class="featurette-divider">
+<div class="my-3 p-3 bg-white rounded">
+    @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", ViewBag.GuideContent as Article)
+    @Html.Raw(ViewBag.GuideContent.Detail)
+</div>
+<hr class="featurette-divider">
+<div class="container marketing">
+    @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", ViewBag.HighLightContent as Article)
+    @Html.Raw(ViewBag.HighLightContent.Detail)
+</div>
+<hr class="featurette-divider">
+<div class="container">
+    <div class="row">
+        <div class="col-xl-9 mx-auto">
+            @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", ViewBag.FooterContent as Article)
+            @Html.Raw(ViewBag.FooterContent.Detail)
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @*<script>
+
+        $(document).ready(function () {
+
+        });
+
+        var vm = new Vue({
+            el: '#homePage',
+            data: {
+                message: 'test VUE'
+            }
+        });
+
+
+    </script>*@
+}

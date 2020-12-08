@@ -1,0 +1,84 @@
+﻿<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-video"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin <sup>videodownhd</sup></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item @(Context.Request.Path == "/admin" ? "active" : string.Empty)">
+        <a class="nav-link" href="/admin">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        System
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item @(Context.Request.Path == "/admin/user" || Context.Request.Path == "/admin/userpackage" || Context.Request.Path == "/admin/usertransaction" ? "active" : string.Empty)">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+            <i class="fas fa-fw fa-user"></i>
+            <span>User</span>
+        </a>
+        <div id="collapseUser" class="collapse @(Context.Request.Path == "/admin/user" || Context.Request.Path == "/admin/userpackage" || Context.Request.Path == "/admin/usertransaction"? "show" : string.Empty)" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">User manager:</h6>
+                <a class="collapse-item @(Context.Request.Path == "/admin/user" ? "active" : string.Empty)" href="/admin/user">User manager</a>
+                <a class="collapse-item @(Context.Request.Path == "/admin/userpackage" ? "active" : string.Empty)" href="/admin/userpackage">Packages</a>
+                <a class="collapse-item @(Context.Request.Path == "/admin/usertransaction" ? "active" : string.Empty)" href="/admin/usertransaction">Transactions</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item @(Context.Request.Path == "/admin/historydownload" || Context.Request.Path == "/admin/videosource" ? "active" : string.Empty)">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDowmload" aria-expanded="true" aria-controls="collapseDowmload">
+            <i class="fas fa-fw fa-download"></i>
+            <span>Download</span>
+        </a>
+        <div id="collapseDowmload" class="collapse @(Context.Request.Path == "/admin/historydownload" || Context.Request.Path == "/admin/historygetLink" || Context.Request.Path == "/admin/videosource" ? "show" : string.Empty)" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Download manager:</h6>
+                <a class="collapse-item @(Context.Request.Path == "/admin/historygetLink" ? "active" : string.Empty)" href="/admin/historygetLink">Request links</a>
+                <a class="collapse-item @(Context.Request.Path == "/admin/historydownload" ? "active" : string.Empty)" href="/admin/historydownload">History</a>
+                <a class="collapse-item @(Context.Request.Path == "/admin/videosource" ? "active" : string.Empty)" href="/admin/videosource">Sources</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Cotent
+    </div>
+
+    <li class="nav-item @(Context.Request.Path == "/admin/article" ? "active" : string.Empty)">
+        <a class="nav-link" href="/admin/article">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Article</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>

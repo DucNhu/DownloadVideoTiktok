@@ -1,0 +1,89 @@
+﻿@inject Microsoft.Extensions.Options.IOptions<DownloadVideoTiktok.Infrastructure.WebConfig> webConfig
+
+@{
+    ViewData["Title"] = "Upgrade";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <partial name="_AccountMenuPartial" />
+    </div>
+    <div class="col-md-9">
+        <section>
+            <h4>Upgrade.</h4>
+            <hr />
+            <div class="alert alert-warning" role="alert">
+                Date expired: <b>@ViewBag.DateExpired</b>
+            </div>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Week</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$2.5 <small class="text-muted">/ week</small></h1>
+                        <h5 class="text-muted" style="text-decoration:line-through">$3.75</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Download multiple link</li>
+                            <li>Download chanel</li>
+                            <li>One week</li>
+                        </ul>
+                        <div id="btn-paypal-week" data-package="WEEK"></div>
+                        @*<button type="button" class="btn btn-link btn-lg btn-block btn-outline-primary btn-upgrade" data-package="DAY">Upgrade</button>*@
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Month</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$7.5 <small class="text-muted">/ mo</small></h1>
+                        <h5 class="text-muted" style="text-decoration:line-through">$11.25</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Download multiple link</li>
+                            <li>Download chanel</li>
+                            <li>One Month</li>
+                        </ul>
+                        <div id="btn-paypal-month"></div>
+                        @*<button type="button" class="btn btn-lg btn-block btn-primary btn-upgrade" data-package="MONTH">Upgrade</button>*@
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Year</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">65 <small class="text-muted">/ yer</small></h1>
+                        <h5 class="text-muted" style="text-decoration:line-through">$97.5</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Download multiple link</li>
+                            <li>Download chanel</li>
+                            <li>One year</li>
+                        </ul>
+                        <div id="btn-paypal-year"></div>
+                        @*<button type="button" class="btn btn-lg btn-block btn-primary btn-upgrade" data-package="YEAR">Upgrade</button>*@
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-notify" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+@section ScriptsInclude
+{
+    <script src="https://www.paypal.com/sdk/js?client-id=@webConfig.Value.PaypalClientId&disable-funding=credit,card" data-sdk-integration-source="button-factory"></script>
+}

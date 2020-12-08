@@ -1,0 +1,42 @@
+﻿@model DownloadVideoTiktok.Models.PageListModel<DownloadVideoTiktok.Models.Article>
+
+@{
+    ViewData["Title"] = "Faq";
+}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Faq</h1>
+                    <span class="subheading">Faqs for videodownhd.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="bs-docs-section">
+    <div class="accordion" id="accordionFaq">
+        @foreach (var item in Model.List.Select((v, i) => new { Value = v, Index = i }))
+        {
+            @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", item.Value)
+            <div class="card">
+                <div class="card-header" id="headingFaq_@item.Index">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left text-secondary" type="button" data-toggle="collapse" data-target="#collapseFaq_@item.Index" aria-expanded="true" aria-controls="collapseFaq_@item.Index">
+                            @item.Value.Name
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseFaq_@item.Index" class="collapse @(item.Index == 0 ? "show" : string.Empty)" aria-labelledby="headingFaq_@item.Index" data-parent="#accordionFaq">
+                    <div class="card-body">
+                        @Html.Raw(item.Value.Detail)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

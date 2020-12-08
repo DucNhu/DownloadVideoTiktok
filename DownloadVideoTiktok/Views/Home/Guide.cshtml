@@ -1,0 +1,48 @@
+﻿@model DownloadVideoTiktok.Models.PageListModel<DownloadVideoTiktok.Models.Article>
+
+@{
+    ViewData["Title"] = "Guide";
+}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Guide</h1>
+                    <span class="subheading">Guide by Videodownhd</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills list-group" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            @foreach (var item in Model.List.Select((v, i) => new { Value = v, Index = i }))
+            {
+                <a class="nav-link list-group-item @(item.Index == 0 ? "active" : string.Empty)" id="v-pills-@item.Index-tab" data-toggle="pill" href="#v-pills-@item.Index" role="tab" aria-controls="v-pills-@item.Index" aria-selected="true">@item.Value.Name</a>
+            }
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            @foreach (var item in Model.List.Select((v, i) => new { Value = v, Index = i }))
+            {
+                <div class="tab-pane fade @(item.Index == 0 ? "show active" : string.Empty)" id="v-pills-@item.Index" role="tabpanel" aria-labelledby="v-pills-@item.Index-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", item.Value)
+                            @item.Value.Name
+                        </div>
+                        <div class="card-body">
+                            @Html.Raw(item.Value.Detail)
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

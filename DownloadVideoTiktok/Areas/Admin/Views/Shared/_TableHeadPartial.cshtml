@@ -1,0 +1,22 @@
+﻿<form>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="form-group form-inline">
+                <label>
+                    Show &nbsp;
+                    <select name="pageSize" class="custom-select custom-select-sm form-control form-control-sm" onchange="this.form.submit()">
+                        <option value="10" @(Context.Request.Query["pageSize"] == "10" ? "selected" : string.Empty)>10</option>
+                        <option value="25" @(Context.Request.Query["pageSize"] == "25" ? "selected" : string.Empty)>25</option>
+                        <option value="50" @(Context.Request.Query["pageSize"] == "50" ? "selected" : string.Empty)>50</option>
+                        <option value="100" @(Context.Request.Query["pageSize"] == "100" ? "selected" : string.Empty)>100</option>
+                    </select> &nbsp; entries
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="form-group form-inline float-sm-right">
+                <label>Search: &nbsp;<input type="search" name="keyword" class="form-control form-control-sm" placeholder="keyword..." value="@Context.Request.Query["keyword"]"></label>
+            </div>
+        </div>
+    </div>
+</form>

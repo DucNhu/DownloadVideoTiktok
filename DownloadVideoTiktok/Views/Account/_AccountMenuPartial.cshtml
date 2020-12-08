@@ -1,0 +1,11 @@
+﻿<section>
+    <h4>Menu.</h4>
+    <hr />
+    <nav class="nav flex-column nav-pills">
+        <a class="nav-link @(Context.Request.Path.Value.Contains("change-password") ? "active" : string.Empty)" href="/change-password">Change password</a>
+        <a class="nav-link @(Context.Request.Path.Value.Contains("transactions") ? "active" : string.Empty)" href="/transactions">Transactions</a>
+        <a class="nav-link @(Context.Request.Path.Value.Contains("history-download") ? "active" : string.Empty)" href="/history-download">History download</a>
+        <a class="nav-link @(Context.Request.Path.Value.Contains("reference") ? "active" : string.Empty)" href="/reference">Reference</a>
+        <a class="nav-link @(Context.Request.Path.Value.Contains("upgrade") ? "active" : string.Empty)" href="/upgrade">Upgrade</a>
+    </nav>
+</section>
