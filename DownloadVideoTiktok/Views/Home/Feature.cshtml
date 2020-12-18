@@ -8,17 +8,36 @@
 }
 
 <header class="masthead">
-    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>Feature</h1>
+                    <h1 class="">Feature</h1>
                     <span class="subheading">@Html.Raw(Model.Summary)</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 @await Html.PartialAsync("~/Views/Shared/_EditContentPartial.cshtml", Model)
 @Html.Raw(Model.Detail)
+
+<script>
+    // Add class bs4 in <table>
+    document.querySelector('.table').classList.add("table-striped");
+
+    //Add class text-center in <tbody>, <thead>
+    document.querySelector('.table thead').classList.add("text-center");
+    document.querySelector('.table thead tr').classList.add("box__title");
+
+    //Add class text-center in <tbody>
+    document.querySelector('.table tbody').classList.add("text-center");
+
+    //Add class text-center in <td>
+    var tr = document.querySelectorAll('.table tbody tr');
+    for (let i = 0; i < tr.length; i++) {
+        tr[i].classList.add("hover--transf");
+    }
+    
+</script>

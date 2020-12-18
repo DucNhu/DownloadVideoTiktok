@@ -1,12 +1,12 @@
-﻿<ul class="navbar-nav">
+﻿<ul class="navbar-nav flex-row">
     @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item">
-            <div class="btn-group">
-                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Welcome! @User.Identity.Name
+            <div class="btn-group position-relative">
+                <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     @User.Identity.Name
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="sub-menu box-nav">
                     @if (User.IsInRole("ADMIN"))
                     {
                         <a class="dropdown-item" href="/admin">Admin</a>
@@ -28,10 +28,10 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" href="/signup">Register</a>
+            <a class="nav-link text-white" href="/signup">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" href="/signin">Login</a>
+            <a class="nav-link text-white" href="/signin">Login</a>
         </li>
     }
 </ul>

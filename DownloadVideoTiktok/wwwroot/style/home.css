@@ -1,0 +1,149 @@
+﻿/*-----------------THE MENU--------------------
+    Home:
+            
+    FEATURES:
+
+    GUIDE:
+
+    BLOGS:
+
+    FAQ:
+*/
+
+
+.box__title {
+    background: var(--background); 
+    background: var(--webkitLinear);
+    background: var(--linear);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.box__title h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#txtUrl {
+    height: calc(100% / 16/9);
+    resize: unset
+}
+
+.button-dow, .button--sub {
+    background: var(--webkitLinear);
+    background: var(--linear);
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0em 0em 5px #F45C43;
+    border: 2px solid white;
+    border-radius: 50px
+}
+
+    .button-dow:hover, .button--sub:hover {
+        background: var(--background);
+        background: var(--webkitLinear);
+        background: var(--linear);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: 1s;
+        transition-property: color, background;
+        border: 2px solid #F45C43;
+    }
+
+        .button-dow:hover .spinner-border {
+            color: red
+        }
+/*Guide & Support*/
+.Box__guid-sup h6 {
+    font-size: 1.5rem !important
+}
+
+.flex-basis-60 {
+    flex-basis: 60%
+}
+
+.ic--ques::after {
+    content: '\f059'
+}
+.media { align-items: center}
+p.media-body { font-size: 1.25rem}
+.list-supported ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+}
+
+.message div p {
+    column-count: 5
+}
+
+
+
+
+
+
+
+
+
+
+
+/*FEATURES*/
+table.table-striped {
+    border-radius: 10px; overflow: hidden
+}
+.table thead tr {
+    --webkit-background-clip: unset;
+    color: white;
+    background-clip: unset;
+}
+
+.hover--transf {
+    position: relative; cursor: pointer
+}
+
+.hover--transf:hover td, .hover--transf:hover th {
+    transform: scale(1.5)
+}
+
+
+/*GUIDE*/
+
+
+
+
+
+/*Media*/
+@media only screen and (max-width: 1024px) {
+    .flex-basis-60 {
+        flex-basis: 60%
+    }
+
+    .flex-sm-column {
+        flex-direction: column
+    }
+
+    .message div p {
+        column-count: unset
+    }
+}
+
+@media (max-width: 768px) {
+    main .container {
+        padding: 0 !important
+    }
+}
+
+@media (max-width: 280px) {
+    .list-supported ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+:root {
+    /*background title h1*/
+    --background: #EB3349;
+    --webkitLinear: -webkit-linear-gradient(to right, #F45C43, #EB3349);
+    --linear: linear-gradient(to right, #F45C43, #EB3349);
+}

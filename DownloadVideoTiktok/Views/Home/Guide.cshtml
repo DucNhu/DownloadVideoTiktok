@@ -4,6 +4,7 @@
     ViewData["Title"] = "Guide";
 }
 
+
 <header class="masthead">
     <div class="overlay"></div>
     <div class="container">
@@ -18,16 +19,20 @@
     </div>
 </header>
 
-<div class="row">
-    <div class="col-3">
-        <div class="nav flex-column nav-pills list-group" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+
+
+
+<div class="row max-vh-10">
+    <div class="col-md-3 col-sm-12">
+        <div class="nav flex-column nav-pills list-group text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             @foreach (var item in Model.List.Select((v, i) => new { Value = v, Index = i }))
             {
-                <a class="nav-link list-group-item @(item.Index == 0 ? "active" : string.Empty)" id="v-pills-@item.Index-tab" data-toggle="pill" href="#v-pills-@item.Index" role="tab" aria-controls="v-pills-@item.Index" aria-selected="true">@item.Value.Name</a>
+                <a class="nav-link @(item.Index == 0 ? "active" : string.Empty)" id="v-pills-@item.Index-tab" data-toggle="pill" href="#v-pills-@item.Index" role="tab" aria-controls="v-pills-@item.Index" aria-selected="true">@item.Value.Name</a>
             }
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-md-9 col-sm-12">
         <div class="tab-content" id="v-pills-tabContent">
             @foreach (var item in Model.List.Select((v, i) => new { Value = v, Index = i }))
             {
@@ -46,3 +51,20 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'progressbar',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>

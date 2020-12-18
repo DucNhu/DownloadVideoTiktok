@@ -1,3 +1,5 @@
+/*    -------THE MENU-------*/
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -7,10 +9,24 @@
     user-select: none;
 }
 
+.flex-basis-100 {
+    flex-basis: 100%
+}
+
+.float-right {
+    float: right
+}
+
+.eye-check { margin-left: -2rem; z-index: 1; cursor: pointer}
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+}
+
+.button--sub:hover {
+    box-shadow: 0px 0px 10px #00BCD4;
 }
 
 /* Signin
@@ -24,19 +40,21 @@
 
 .form-label-group {
     position: relative;
-    margin-bottom: 1rem;
 }
 
     .form-label-group > input,
     .form-label-group > label.lbl-float {
-        height: 3.125rem;
+        height: 3.525rem;
         padding: .75rem;
+        padding-left: 1rem;
     }
 
     .form-label-group > label.lbl-float {
         position: absolute;
         top: 0;
         left: 0;
+
+
         display: block;
         width: 100%;
         margin-bottom: 0; /* Override default `<label>` margin */
@@ -47,6 +65,12 @@
         border: 1px solid transparent;
         border-radius: .25rem;
         transition: all .1s ease-in-out;
+    }
+
+    .form-label-group label.error {
+        position: absolute;
+        left: 4%;
+        font-size: 14px
     }
 
     .form-label-group input::-webkit-input-placeholder {

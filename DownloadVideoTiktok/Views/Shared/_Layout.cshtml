@@ -11,9 +11,17 @@
     <link rel="canonical" href="https://videodownhd.com/" />
     <link rel="icon" type="image/x-icon" href="~/imgs/favicon.png">
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/circle.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+
+        <link rel="stylesheet" href="~/style/style.css" />
+        <link rel="stylesheet" href="~/font/font-style.css" />
+        <link rel="stylesheet" href="~/style/header.css" />
+        <link rel="stylesheet"href="~/style/home.css"  />
+
+        @* Link fontawesome *@
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
@@ -23,43 +31,50 @@
 <body>
     @Html.AntiForgeryToken()
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">Download Videos</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 box-nav p-2">
+            <div class="container header__container">
+              @*  <span class="p-2 pr-0"><img src="/imgs/favicon.png" /></span>*@
+                <a class="navbar-brand logo" href="/"><spam class="text-uppercase">V</spam>ideo<span class="text-uppercase">D</span>own<span class="text-uppercase">HD</span></a>
+
+                <button class="navbar-toggler collapsed text-right flex-grow-1" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navbarButton">
+                    <span class="navbar-toggler-icon" style="text-align: center; line-height: 2rem;"><i class="fas fa-bars"></i></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse flex-sm-row collapse show box__menu">
+
+                    <ul class="navbar-nav flex-row flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
+                            <a class="nav-link text-white" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/features">Features</a>
+                            <a class="nav-link text-white" href="/features">Features</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/guide">Guide</a>
+                            <a class="nav-link text-white" href="/guide">Guide</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/blogs">Blogs</a>
+                            <a class="nav-link text-white" href="/blogs">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/faq">Faq</a>
+                            <a class="nav-link text-white" href="/faq">Faq</a>
                         </li>
                     </ul>
+
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
+           
         </nav>
+        @*<img src="./imgs/promo-icon-bg.svg" alt="Alternate Text" />*@
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    
+    <main role="main" class="px-3 pb-5">
+        <div class="container">
             @RenderBody()
-        </main>
-    </div>
+        </div>
+    </main>
+    
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted mt-5">
         <div class="container">
             &copy; 2020 - Download videos
         </div>
@@ -74,7 +89,23 @@
 
         gtag('config', 'UA-167588296-1');
     </script>
+   <script>
+       var idBtn = document.querySelector(".collapse");
+       let i = true;
+       function show() {
+           
+           if (i) {
+               idBtn.style.display = "flex";
+               i = false;
+           }
+           else {
+               idBtn.style.display = "none";
+               i = true;
+           }
+       }
 
+       
+   </script>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>

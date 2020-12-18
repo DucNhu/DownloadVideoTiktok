@@ -1,0 +1,99 @@
+/**/
+
+
+/* HEADER*/
+.box-nav {
+    background: var(--background);
+    background: var(--webkitLinear);
+    background: var(--linear);
+}
+
+.navbar-toggler {
+    outline: none !important;
+    border: none;
+    color: #fff !important
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: unset
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly
+}
+
+.nav-item {
+    width: 100%
+}
+
+.box__menu a, .logo, .btn {
+    font-weight: bold;
+    font-size: 1.125rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.box__menu a, .logo {
+    color: #fff !important;
+}
+
+.box__menu a:hover {
+    background: #e7f6ff69;
+    border-radius: 50px;
+}
+
+
+.logo {
+    border: 1px solid white;
+    padding: 10px;
+    position: relative;
+
+    border-radius: 50px;
+}
+    
+    .logo:hover {opacity: .5}
+
+/*ACCOUT*/
+.btn:focus {
+    box-shadow: none !important
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+
+    top: 130%;
+    border-radius: 10px;
+
+    left: 0;
+    right: 0;
+}
+
+.btn-group:hover .sub-menu {
+    display: block
+}
+.btn-group:hover::before {
+    content: '';
+    padding: 6px 50%;
+    background: #00000000;
+    position: absolute;
+    bottom: -12px
+}
+
+.dropdown-item { margin: 5px 0px}
+/* END Logo */
+/*MEDIA*/
+@media only screen and (max-width: 1024px) {
+    .box__menu a:hover {
+        background: unset;
+    }
+}
+
+
+@media (max-width: 280px) {
+    .nav-link {
+        font-size: 10px !important
+    }
+}
+
