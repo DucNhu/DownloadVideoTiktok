@@ -11,8 +11,8 @@
 */
 
 
-.box__title {
-    background: var(--background); 
+.box__title, .table thead tr  {
+    background: var(--background);
     background: var(--webkitLinear);
     background: var(--linear);
     background-clip: text;
@@ -20,11 +20,32 @@
     color: transparent;
 }
 
-.box__title h1 {
-    font-size: 3em;
-    font-weight: bold;
+    .box__title h1 {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+/*List Video*/
+.box-result .button--down {
+    background-color: #f96c6c;
+    border: none;
+    color: white
+}
+.tableFixHead {
+    max-height: 50vh;
+    overflow-y: scroll
 }
 
+.table-result thead tr th:not(.no) {
+    line-height: 41.6px
+}
+
+.no label {
+    box-shadow: 0px 0px 5px white;
+}
+    .no label:hover {
+        opacity: .8
+    }
 #txtUrl {
     height: calc(100% / 16/9);
     resize: unset
@@ -55,6 +76,7 @@
         .button-dow:hover .spinner-border {
             color: red
         }
+
 /*Guide & Support*/
 .Box__guid-sup h6 {
     font-size: 1.5rem !important
@@ -67,8 +89,15 @@
 .ic--ques::after {
     content: '\f059'
 }
-.media { align-items: center}
-p.media-body { font-size: 1.25rem}
+
+.media {
+    align-items: center
+}
+
+p.media-body {
+    font-size: 1.25rem
+}
+
 .list-supported ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -90,22 +119,22 @@ p.media-body { font-size: 1.25rem}
 
 
 /*FEATURES*/
-table.table-striped {
-    border-radius: 10px; overflow: hidden
-}
-.table thead tr {
+
+
+.table thead tr, .tableFixHead thead tr {
     --webkit-background-clip: unset;
     color: white;
     background-clip: unset;
 }
 
 .hover--transf {
-    position: relative; cursor: pointer
+    position: relative;
+    cursor: pointer
 }
 
-.hover--transf:hover td, .hover--transf:hover th {
-    transform: scale(1.5)
-}
+    .hover--transf:hover td, .hover--transf:hover th {
+        transform: scale(1.5)
+    }
 
 
 /*GUIDE*/

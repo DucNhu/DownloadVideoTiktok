@@ -3,3 +3,22 @@
 }
 
 
+table {
+    text-align: center 
+}
+
+.cursor-point { cursor: pointer}
+
+.overflow-scroll { overflow: scroll}
+
+.left-0 {
+    left: 0
+}
+
+.top-0 {
+    top: 0
+}
+
+.table thead th {
+    border: none !important
+}

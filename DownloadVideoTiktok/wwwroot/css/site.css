@@ -1,5 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
+::-webkit-scrollbar {
+    display: none;
+    width: 0px
+}
+
+
 body {
     overflow-x: hidden
 }
@@ -16,6 +23,11 @@ a {
 }
 
 .outline-none {outline: none}
+
+.text-decoration-under {
+    text-decoration: underline
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -36,6 +48,14 @@ a {
     transition: all .5s
 }
 
+.box--img {
+    padding: 100px !important;
+/*    padding-top: 0px !important
+*/}
+
+    .box--img img {
+        object-fit: contain
+    }
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -131,12 +151,12 @@ body {
         padding: 8px 16px;
     }
 
-    .tableFixHead th {
+/*    .tableFixHead th {
         position: sticky;
         top: -2px;
-        background: #eee;
+
         z-index: 5;
-    }
+    }*/
 
 .btn-download-video,
 .btn-save-video {

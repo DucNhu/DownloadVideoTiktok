@@ -17,6 +17,7 @@
     float: right
 }
 
+
 .eye-check { margin-left: -2rem; z-index: 1; cursor: pointer}
 
 @media (min-width: 768px) {
@@ -26,7 +27,7 @@
 }
 
 .button--sub:hover {
-    box-shadow: 0px 0px 10px #00BCD4;
+    box-shadow: 0px 0px 10px #f96c6c;
 }
 
 /* Signin

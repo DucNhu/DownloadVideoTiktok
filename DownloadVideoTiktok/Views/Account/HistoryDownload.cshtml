@@ -5,70 +5,71 @@
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 d-sm-none d-md-block">
         <partial name="_AccountMenuPartial" />
     </div>
-    <div class="col-md-9">
-        <section>
-            <h4>History download.</h4>
-            <hr />
+    <div class="col-md-9 col-sm-12">
+        <h1>History download</h1>
+        <div class="overflow-scroll">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>
+                        <th scope="col">
                             No.
                         </th>
-                        <th>
+                        <th scope="col">
                             Name
                         </th>
-                        <th>
+                        <th scope="col">
                             Image
                         </th>
-                        <th>
+                        <th scope="col">
                             Link
                         </th>
-                        <th>
-                            Date
-                        </th>
-                        <th>
+                        <th scope="col">
                             Download
+                        </th>
+                        <th scope="col">
+                            Date
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.List.Select((v, i) => new { Index = i, Value = v }))
                     {
-                    <tr>
-                        <td>
-                            @(item.Index + 1)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Value.Name)
-                        </td>
-                        <td>
-                            <img src="@item.Value.Avatar" class="img-fluid img-thumbnail" style="width: 120px;" />
-                        </td>
-                        <td>
-                            <a href="@item.Value.Source" target="_blank" title="@item.Value.Source">Open</a>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Value.DateCreated)
-                        </td>
-                        <td>
-                            <a href="/@item.Value.Name.ToLower().Replace("extractor", string.Empty)?url=@item.Value.Source" target="_blank">
-                                <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z" clip-rule="evenodd" />
-                                    <path fill-rule="evenodd" d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z" clip-rule="evenodd" />
-                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                @(item.Index + 1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.Name)
+                            </td>
+                            <td class="box--img position-relative">
+                                <img src="@item.Value.Avatar" class="w-100 h-100 img-fluid position-absolute left-0 top-0" />
+                            </td>
+                            <td>
+                                <a href="@item.Value.Source" target="_blank" title="@item.Value.Source">Open</a>
+                            </td>
+                            <td>
+                                <a href="/@item.Value.Name.ToLower().Replace("extractor", string.Empty)?url=@item.Value.Source" target="_blank">
+                                    <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Value.DateCreated)
+                            </td>
+
+                        </tr>
                     }
                 </tbody>
             </table>
-            @await Html.PartialAsync("~/Views/Shared/_PagingPartial.cshtml", Model.Paging)
-        </section>
+
+        </div>
+        @await Html.PartialAsync("~/Views/Shared/_PagingPartial.cshtml", Model.Paging)
     </div>
 </div>
 

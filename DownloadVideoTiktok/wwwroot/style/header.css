@@ -60,19 +60,19 @@
 
 .sub-menu {
     display: none;
-    position: absolute;
+    position: absolute !important;
     z-index: 10;
 
-    top: 130%;
+    top: 132%;
     border-radius: 10px;
 
     left: 0;
     right: 0;
 }
 
-.btn-group:hover .sub-menu {
+/*.btn-group:hover .sub-menu {
     display: block
-}
+}*/
 .btn-group:hover::before {
     content: '';
     padding: 6px 50%;
@@ -81,7 +81,7 @@
     bottom: -12px
 }
 
-.dropdown-item { margin: 5px 0px}
+.dropdown-item { margin: 5px 0px; font-size: 1rem !important}
 /* END Logo */
 /*MEDIA*/
 @media only screen and (max-width: 1024px) {
