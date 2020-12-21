@@ -31,10 +31,7 @@
     border: none;
     color: white
 }
-.tableFixHead {
-    max-height: 50vh;
-    overflow-y: scroll
-}
+
 
 .table-result thead tr th:not(.no) {
     line-height: 41.6px

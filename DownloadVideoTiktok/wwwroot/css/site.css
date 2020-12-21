@@ -137,8 +137,8 @@ body {
 }
 /*fix head table*/
 .tableFixHead {
-    overflow-y: auto;
-    max-height: 500px;
+    overflow-y: scroll;
+    max-height: 80vh;
 }
 
     .tableFixHead table {
