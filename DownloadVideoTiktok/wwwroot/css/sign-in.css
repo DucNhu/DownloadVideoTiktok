@@ -18,7 +18,11 @@
 }
 
 
-.eye-check { margin-left: -2rem; z-index: 1; cursor: pointer}
+.eye-check {
+    margin-left: -2rem;
+    z-index: 1;
+    cursor: pointer
+}
 
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {

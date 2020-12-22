@@ -65,10 +65,35 @@
         </div>
     </div>
 </div>
-
+<div class="position-fixed box-modal col-6 col-sm-3 col-xl-2 right-0 bottom-0">
+    <div class="modal__img">
+        <button type="button" class="close position-absolute" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="1500">
+                    <img src="/imgs/modal--img.png" alt="modal--img.png" class="img-fluid" />
+                </div>
+                <div class="carousel-item" data-interval="2500">
+                    <img src="/imgs/img--upgrade.png" alt="modal--img.png" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal__title">
+        <p>
+            Want to download multiple videos at once? Why not try <a href="/upgrade" class="text-decoration-under text-primary">upgrading</a> your account?
+        </p>
+    </div>
+</div>
 @section Scripts {
     <script>
         var display;
         $('.box__guid h6').prepend("<span class='far ic--ques mr-2'></span>");
+
+        $('.close').click(function () {
+            $('.box-modal').css("display", "none")
+        });
     </script>
 }

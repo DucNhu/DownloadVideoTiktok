@@ -8,6 +8,8 @@
     BLOGS:
 
     FAQ:
+
+    Modal Box
 */
 
 
@@ -92,7 +94,13 @@
 }
 
 p.media-body {
-    font-size: 1.25rem
+    font-size: 1.25rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 .list-supported ul {
@@ -136,8 +144,15 @@ p.media-body {
 
 /*GUIDE*/
 
+/*Box Modal*/
 
 
+
+.box-modal {
+    height: 30vh;
+    box-shadow: -2px -2px 5px #969696;
+    background: white
+}
 
 
 /*Media*/

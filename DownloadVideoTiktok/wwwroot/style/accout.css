@@ -1,1 +1,5 @@
 ﻿
+.box__his-img {
+    overflow: hidden;
+    padding: 5rem !important;
+}

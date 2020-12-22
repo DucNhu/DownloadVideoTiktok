@@ -18,14 +18,14 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6">
             <img src="@Model.Avatar" class="img-fluid" />
-        </div>
-        <div class="col-md-8 text-center">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            <div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <button type="button" class="btn btn-success mt-3 btn-getlink-download" data-id="@Model.Id" data-trigger="1">Download</button>
             </div>
-            <button type="button" class="btn btn-success mt-5 btn-getlink-download" data-id="@Model.Id" data-trigger="1">Download</button>
         </div>
     </div>
 }
